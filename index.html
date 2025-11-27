@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFS Pilot - Startguide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .sim-screen { background-color: #000; color: white; height: 300px; display: flex; flex-direction: column; position: relative; border-radius: 8px; overflow: hidden; border: 4px solid #333; }
+        .top-bar-red { background-color: #ff4d4d; color: black; padding: 10px; text-align: center; font-weight: bold; cursor: pointer; animation: pulse 2s infinite; }
+        .top-bar-yellow { background-color: #ffd700; color: black; padding: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .amphi-logo { font-size: 2rem; font-weight: bold; text-align: center; margin-top: 40px; color: white; }
+        .btn-sim { background-color: #e5e7eb; color: black; padding: 8px; margin: 4px; border-radius: 4px; text-align: center; font-size: 0.8rem; cursor: pointer; border: 1px solid #999; }
+        .btn-sim:hover { background-color: #d1d5db; }
+        .selected { background-color: #3b82f6; color: white; border-color: #2563eb; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Header -->
+    <header class="bg-blue-900 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-md mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="font-bold text-lg">RFS Pilot</h1>
+                <p class="text-xs text-blue-200">AISAB Norrtälje/Rimbo/Hallstavik</p>
+            </div>
+            <div class="bg-yellow-500 text-blue-900 text-xs font-bold px-2 py-1 rounded">START 8/12</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-md mx-auto p-4 pb-20 space-y-6">
+
+        <!-- Intro Card -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+            <h2 class="font-bold text-xl mb-2 text-slate-800">Välkommen till piloten!</h2>
+            <p class="text-slate-600 mb-4">
+                Här hittar du allt du behöver för att komma igång med det nya Fleet Management-systemet.
+            </p>
+            <div class="flex gap-2">
+                <button onclick="switchTab('guide')" id="tab-guide" class="flex-1 bg-blue-600 text-white py-2 rounded-lg font-medium shadow-sm transition-colors hover:bg-blue-700">Lathund</button>
+                <button onclick="switchTab('sim')" id="tab-sim" class="flex-1 bg-white text-blue-600 border border-blue-200 py-2 rounded-lg font-medium hover:bg-slate-50">Öva nu</button>
+            </div>
+        </div>
+
+        <!-- CONTENT: GUIDE -->
+        <div id="content-guide" class="space-y-4">
+            <h3 class="font-bold text-lg text-slate-700 border-b pb-2">Så här loggar du in</h3>
+            
+            <div class="flex items-start gap-4">
+                <div class="bg-blue-100 text-blue-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">1</div>
+                <div>
+                    <h4 class="font-bold">Starta passet</h4>
+                    <p class="text-sm text-slate-600 mt-1">Logga in i Windows/amPHI som vanligt. Se du en <span class="text-red-600 font-bold">RÖD LIST</span> i toppen?</p>
+                    <div class="mt-2 p-2 bg-black rounded border border-slate-300">
+                        <div class="bg-red-500 text-black text-xs font-bold p-1 text-center">Tryck här för att välja driftpass</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="bg-blue-100 text-blue-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">2</div>
+                <div>
+                    <h4 class="font-bold">Välj enhet</h4>
+                    <p class="text-sm text-slate-600 mt-1">Välj din station (t.ex. Norrtälje) och enhetstyp (Akutambulans). Tryck <strong>Acceptera</strong>.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="bg-blue-100 text-blue-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">3</div>
+                <div>
+                    <h4 class="font-bold">Välj Rakel-ID</h4>
+                    <p class="text-sm text-slate-600 mt-1">Leta upp bilens anropsnummer i listan. Kontrollera tiderna. Tryck <strong>Acceptera</strong>.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="bg-green-100 text-green-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">4</div>
+                <div>
+                    <h4 class="font-bold">Klart!</h4>
+                    <p class="text-sm text-slate-600 mt-1">Listen blir <span class="text-yellow-600 font-bold">GUL</span>. Nu syns ni i systemet!</p>
+                    <div class="mt-2 p-2 bg-black rounded border border-slate-300">
+                        <div class="bg-yellow-400 text-black text-xs font-bold p-1 flex justify-between">
+                            <span>🚑 330-4530</span>
+                            <span class="bg-green-600 text-white px-1 rounded text-[10px]">SA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-100 p-4 rounded-lg mt-6 border border-slate-200">
+                <h4 class="font-bold text-sm mb-2">Vid passavslut?</h4>
+                <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                    <li>Ska bilen ställas av? Svara <strong>JA</strong> på "Avsluta driftpass?".</li>
+                    <li>Ska du bytas av? Välj Logga ut men svara <strong>NEJ</strong> på att avsluta passet.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONTENT: SIMULATOR -->
+        <div id="content-sim" class="hidden space-y-4">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="font-bold text-lg text-slate-700">Interaktiv Övning</h3>
+                <button onclick="resetSim()" class="text-xs bg-slate-200 hover:bg-slate-300 px-3 py-1 rounded text-slate-700">Börja om</button>
+            </div>
+            <p class="text-sm text-slate-500">Klicka på skärmen nedan precis som du skulle göra i bilen.</p>
+
+            <!-- SIMULATOR CONTAINER -->
+            <div id="sim-container" class="sim-screen shadow-xl">
+                <!-- STEP 1: START -->
+                <div id="sim-step-1" class="w-full h-full flex flex-col">
+                    <div onclick="nextStep(2)" class="top-bar-red">⚠️ Tryck här för att välja driftpass</div>
+                    <div class="flex-1 flex flex-col items-center justify-center">
+                        <h1 class="text-4xl font-bold tracking-tighter">amPHI<sup class="text-lg text-red-500">3</sup></h1>
+                        <p class="text-gray-400 text-sm mt-2">Prehospital Patientjournal</p>
+                    </div>
+                    <div class="p-2 text-xs text-gray-500 text-center">Standby</div>
+                </div>
+
+                <!-- STEP 2: STATION SELECT -->
+                <div id="sim-step-2" class="hidden w-full h-full flex flex-col bg-gray-900 p-2">
+                    <div class="text-blue-300 text-xs mb-1 font-bold">Välj Station/Enhet</div>
+                    <div class="grid grid-cols-2 gap-1 mb-2">
+                        <div class="btn-sim">City</div>
+                        <div onclick="selectBtn(this)" class="btn-sim font-bold text-blue-900">Norrtälje</div>
+                        <div class="btn-sim">Södermalm</div>
+                        <div class="btn-sim">Rimbo</div>
+                    </div>
+                    <div class="text-blue-300 text-xs mb-1 font-bold mt-2">Enhetstyp</div>
+                    <div class="grid grid-cols-2 gap-1 mb-auto">
+                        <div onclick="selectBtn(this)" class="btn-sim font-bold text-blue-900">Akutambulans</div>
+                        <div class="btn-sim">Ledningsenhet</div>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <div onclick="nextStep(3)" class="bg-white text-black text-center py-2 flex-1 rounded font-bold cursor-pointer hover:bg-gray-200">Acceptera</div>
+                        <div onclick="resetSim()" class="bg-gray-600 text-white text-center py-2 flex-1 rounded cursor-pointer">Avbryt</div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: PASS SELECT -->
+                <div id="sim-step-3" class="hidden w-full h-full flex flex-col bg-gray-900 p-2">
+                     <div class="text-blue-300 text-xs mb-1 font-bold">Välj Driftpass (Rakel)</div>
+                     <div class="bg-black border border-gray-600 flex-1 overflow-y-auto">
+                         <div class="p-2 border-b border-gray-700 text-sm hover:bg-gray-800 cursor-pointer">AISAB (333-8210)</div>
+                         <div onclick="selectRow(this)" class="p-2 border-b border-gray-700 text-sm hover:bg-gray-800 cursor-pointer">AISAB (333-9230)</div>
+                         <div class="p-2 border-b border-gray-700 text-sm hover:bg-gray-800 cursor-pointer">AISAB (333-8280)</div>
+                     </div>
+                     <div class="flex gap-2 mt-2">
+                        <div onclick="nextStep(4)" class="bg-white text-black text-center py-2 flex-1 rounded font-bold cursor-pointer hover:bg-gray-200">Acceptera</div>
+                        <div onclick="resetSim()" class="bg-gray-600 text-white text-center py-2 flex-1 rounded cursor-pointer">Avbryt</div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: SUCCESS -->
+                <div id="sim-step-4" class="hidden w-full h-full flex flex-col">
+                    <div class="top-bar-yellow">
+                        <div class="flex items-center gap-2">
+                            <span>🚑</span>
+                            <span>333-9230: Akutambulans</span>
+                        </div>
+                        <div class="flex gap-1">
+                            <span class="bg-green-600 text-white text-xs px-2 py-0.5 rounded">SA</span>
+                            <span class="bg-green-600 text-white text-xs px-2 py-0.5 rounded">S</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center justify-center bg-gray-900/90 text-center p-4">
+                        <i data-lucide="check-circle" class="text-green-500 w-16 h-16 mb-4"></i>
+                        <h3 class="text-xl font-bold text-white mb-2">Snyggt jobbat!</h3>
+                        <p class="text-gray-300 text-sm">Du har loggat in korrekt. Bilen är nu i drift.</p>
+                        <button onclick="resetSim()" class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold">Öva igen</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="sim-instruction" class="bg-yellow-50 border border-yellow-200 p-3 rounded text-sm text-yellow-800 mt-2">
+                👆 <strong>Uppdrag:</strong> Tryck på den röda listen för att börja.
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <div class="mt-8 border-t pt-6 text-center">
+            <p class="font-bold text-slate-700 mb-2">Behöver du hjälp?</p>
+            <div class="inline-flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full border border-slate-200">
+                <i data-lucide="phone" class="w-4 h-4 text-slate-500"></i>
+                <a href="tel:0701234567" class="text-blue-600 font-bold text-sm">Ring Christian: 070-123 45 67</a>
+            </div>
+            <p class="text-xs text-slate-400 mt-4">© 2025 AISAB Projekt RFS</p>
+        </div>
+
+    </main>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Tabs Logic
+        function switchTab(tabName) {
+            // Hide all
+            document.getElementById('content-guide').classList.add('hidden');
+            document.getElementById('content-sim').classList.add('hidden');
+            
+            // Reset Button Styles
+            document.getElementById('tab-guide').className = "flex-1 bg-white text-blue-600 border border-blue-200 py-2 rounded-lg font-medium hover:bg-slate-50";
+            document.getElementById('tab-sim').className = "flex-1 bg-white text-blue-600 border border-blue-200 py-2 rounded-lg font-medium hover:bg-slate-50";
+
+            // Show Selected
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            
+            // Highlight Button
+            document.getElementById('tab-' + tabName).className = "flex-1 bg-blue-600 text-white py-2 rounded-lg font-medium shadow-sm transition-colors hover:bg-blue-700";
+        }
+
+        // Simulator Logic
+        let currentStep = 1;
+
+        function nextStep(step) {
+            // Hide current
+            document.getElementById('sim-step-' + currentStep).classList.add('hidden');
+            // Show next
+            document.getElementById('sim-step-' + step).classList.remove('hidden');
+            currentStep = step;
+
+            // Update instruction text
+            const instr = document.getElementById('sim-instruction');
+            if(step === 2) instr.innerHTML = "👆 Välj <strong>Station</strong> och <strong>Enhetstyp</strong>, tryck sen Acceptera.";
+            if(step === 3) instr.innerHTML = "👆 Markera ditt <strong>Rakelnummer</strong> i listan, tryck sen Acceptera.";
+            if(step === 4) instr.innerHTML = "✅ Klart! GUL list betyder att du lyckades.";
+        }
+
+        function selectBtn(el) {
+            if(el.classList.contains('selected')) {
+                el.classList.remove('selected');
+            } else {
+                el.classList.add('selected');
+            }
+        }
+
+        function selectRow(el) {
+            // Deselect others
+            const siblings = el.parentElement.children;
+            for(let sib of siblings) {
+                sib.style.backgroundColor = "";
+                sib.style.color = "";
+            }
+            // Select this
+            el.style.backgroundColor = "#3b82f6";
+            el.style.color = "white";
+        }
+
+        function resetSim() {
+            document.getElementById('sim-step-' + currentStep).classList.add('hidden');
+            currentStep = 1;
+            document.getElementById('sim-step-1').classList.remove('hidden');
+            document.getElementById('sim-instruction').innerHTML = "👆 <strong>Uppdrag:</strong> Tryck på den röda listen för att börja.";
+            
+            // Reset selections
+            const selected = document.querySelectorAll('.selected');
+            selected.forEach(el => el.classList.remove('selected'));
+        }
+    </script>
+</body>
+</html>
